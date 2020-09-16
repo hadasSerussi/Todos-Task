@@ -1,0 +1,151 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.todos{
+  color:#0070f3;
+  font-family:monospace;
+  font-weight: bolder;
+}
+
+.label-input{
+  font-family:monospace;
+  font-weight: bolder;
+}
+
+.l{
+  font-family:monospace;
+  font-weight: bolder;
+  color:red
+}
+
+.input-text{
+  border: none;
+  border-bottom: 2px solid black;
+  margin: 5px 0;
+}
+
+.button-input{
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  background-color: #0070f3; /* Green */
+  color: white;
+  border: 2px solid #0070f3;
+  display: inline-block;
+  margin:10px;
+  cursor:pointer;
+}
+
+.button-input:hover {
+  background-color:white;
+  color: #0070f3;
+}
+@media  (max-width: 199px) and (orientation: landscape) {
+
+  .todos{
+    font-size: 40px;
+  }
+  
+  .input-text{
+    padding: 6px 14px;
+  }
+
+  .label-input{
+    font-size: 14px;
+  }
+
+  .button-input{
+    padding: 6px 20px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 767px) {    /*all mobile*/
+  .todos{
+    font-size: 40px;
+  }
+  
+  .input-text{
+    padding: 6px 14px;
+  }
+
+  .label-input{
+    font-size: 14px;
+  }
+
+  .button-input{
+    padding: 6px 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+ .todos{
+  font-size:70px
+ }
+
+.input-text{
+  padding: 8px 16px;
+}
+
+.label-input{
+  font-size: 16px;
+}
+
+.button-input{
+  padding: 10px 24px;
+}
+  
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  .todos{
+    font-size:70px
+   }
+  
+  .input-text{
+    padding: 8px 16px;
+  }
+  
+  .label-input{
+    font-size: 16px;
+  }
+  
+  .button-input{
+    padding: 10px 24px;
+  }
+  
+}
+
+@media (min-width: 1281px) {
+  
+  .todos{
+    font-size:70px
+   }
+  
+  .input-text{
+    padding: 8px 16px;
+  }
+  
+  .label-input{
+    font-size: 16px;
+  }
+  
+  .button-input{
+    padding: 10px 24px;
+  }
+  
+}
