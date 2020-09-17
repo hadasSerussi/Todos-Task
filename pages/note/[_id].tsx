@@ -33,8 +33,8 @@ const Note_ =  inject("dataStore")(
 
 
     async function updateNote(items){
-        const res =   await fetch(`${baseUrl}/api/note/${newNote._id}`,{
-          method:"POST",
+        const res =   await fetch(`/api/note/${newNote._id}`,{
+            method:"POST",
           headers:{
           "Content-Type":"application/json"
           },
@@ -149,7 +149,7 @@ const Note_ =  inject("dataStore")(
 
   export async function getStaticPaths() {
 
-    const res =  await fetch(`${baseUrl}/api/notes`)
+    const res =  await fetch(`http://localhost:3000/api/notes`)
     const notes = await res.json()
     console.log(notes)
 
@@ -161,7 +161,7 @@ const Note_ =  inject("dataStore")(
 
 
   export async function getStaticProps({ params }) {
-    const res =  await fetch(`${baseUrl}/api/note/${params._id}`)    
+    const res =  await fetch(`http://localhost:3000/api/note/${params._id}`)    
       
       const note = await res.json()
     let items = [];

@@ -84,29 +84,15 @@ export function convertToItems(items){
 }
 
 export async function fetchInitialStoreState() {
-    // You can do anything to fetch initial store state
-    // return  [
-    //     { id:1, nameNote:"Home", todos: [{id:1, name:"Bathroom", done:false},{id:2, name:"leavinigroom", done:true},{id:3, name:"kitchen", done:false}]},
-    //     { id:2, nameNote:"Buy", todos: [{id:1, name:"Bathroom", done:false},{id:2, name:"leavinigroom", done:true},{id:3, name:"kitchen", done:false}]},
-    //     { id:3, nameNote:"Children", todos: [{id:1, name:"Bathroom", done:false},{id:2, name:"leavinigroom", done:true},{id:3, name:"kitchen", done:false}]}
-    // ];
-    console.log("----------1----------")
-    const res =  await fetch(`${baseUrl}/api/notes`);
+
+    const res =  await fetch(`/api/notes`);
     const notes = await res.json()
-    console.log("----------2----------",notes)
     const array : Note[] =[];
     notes.map( note =>{
         let n = new Note();
         n._id= note._id;
         n.nameNote = note.nameNote;
-        // let todos:Item[]=[];
-        // note.items.map( i =>{
-        //     let item = new Item();
-        //     item.id = i.id;
-        //     item.name = i.name;
-        //     item.done = i.done;
-        //     todos.push(item);
-        // })
+
         n.items = convertToItems(note.items);
         array.push(n);
         
