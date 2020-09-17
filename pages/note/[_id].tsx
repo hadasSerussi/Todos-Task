@@ -1,11 +1,11 @@
 
-import NotesStore, { NotesList, Note, convertToItems } from '../../../store/notes_store'
+import NotesStore, { NotesList, Note, convertToItems } from '../../store/notes_store'
 import { ItemsListView, NewItemBox } from '../new-note'
 import { useState } from 'react'
 import { observer, inject } from "mobx-react"
 import React, { useContext } from 'react'
-import baseUrl from '../../../helpers/baseUrl'
-import styles from '../../../styles/Home.module.css'
+import baseUrl from '../../helpers/baseUrl'
+import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useToasts } from 'react-toast-notifications'
@@ -107,7 +107,6 @@ const Note_ =  inject("dataStore")(
           <div>
             
            <div>
-                {/* <label className="label-input">Name Note:</label> */}
                 <input className="input-text"
                     type={newNote.nameNote}
                     value={text}
@@ -150,39 +149,26 @@ const Note_ =  inject("dataStore")(
 
   export async function getStaticPaths() {
 
-    // Call an external API endpoint to get posts
     const res =  await fetch(`${baseUrl}/api/notes`)
     const notes = await res.json()
     console.log(notes)
 
-    // Get the paths we want to pre-render based on posts
-    const paths = notes.map((note) => `/components/note/${note._id}`)
-    console.log("----path--",paths)
+    const paths = notes.map((note) => `/note/${note._id}`)
   
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
     return { paths, fallback: false }
   }
 
 
 
   export async function getStaticProps({ params }) {
-    // params contains the post `id`.
-    // If the route is like /posts/1, then params.id is 1
     const res =  await fetch(`${baseUrl}/api/note/${params._id}`)    
       
       const note = await res.json()
-    // const n = new Note();
-    // n._id = note._id;
-    // n.nameNote = note.nameNote;
-    // n.items = convertToItems(note.items)
     let items = [];
     note.items.map(item=>{
       items.push({...item})
     })
     note.items = items;
-    console.log("=========== n1---",note)
-    // Pass post data to the page via props
     return { props: { note } }
   }
   

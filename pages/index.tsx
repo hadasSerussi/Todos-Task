@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import {CreateNote} from './components/new-note'
+import {CreateNote} from './new-note'
 import Popup from 'reactjs-popup';
 import { NotesList } from '../store/notes_store'
 import { inject } from "mobx-react";
@@ -63,14 +63,14 @@ const Home = inject("dataStore")(
           <div className={styles.grid}>
             <div>
                 <button className={styles.card1} disabled={!(dataStore.length<10)}>
-                  <Link  href= {`/components/new-note`}><div className={styles.plus}>+</div></Link>
+                  <Link  href= {`/new-note`}><div className={styles.plus}>+</div></Link>
               </button>                   
             </div>
  
 
             { dataStore.length > 0  &&  dataStore.map(note => (
                     <div className={styles.card}>
-                        <Link  href= {`/components/note/${note._id}`}><div className={styles.txt}><a>{note.nameNote}</a></div></Link>
+                        <Link  href= {`/note/${note._id}`}><div className={styles.txt}><a>{note.nameNote}</a></div></Link>
                         <Popup
                             trigger={<button className={styles.delete}>Delete</button>}
                             modal

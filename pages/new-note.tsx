@@ -2,9 +2,9 @@ import React, { useState ,  useContext  } from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
 import { observer, inject } from "mobx-react"
-import styles from '../../styles/Home.module.css'
-import  {  NotesList,Note, Item} from '../../store/notes_store'
-import baseUrl from '../../helpers/baseUrl'
+import styles from '../styles/Home.module.css'
+import  {  NotesList,Note, Item} from '../store/notes_store'
+import baseUrl from '../helpers/baseUrl'
 import { useToasts } from 'react-toast-notifications'
 import {useRouter} from 'next/router'
 
