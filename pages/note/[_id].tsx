@@ -1,6 +1,6 @@
 
 import NotesStore, { NotesList, Note, convertToItems } from '../../store/notes_store'
-import { ItemsListView, NewItemBox } from '../new-note'
+// import { ItemsListView, NewItemBox } from '../new-note'
 import { useState } from 'react'
 import { observer, inject } from "mobx-react"
 import React, { useContext } from 'react'
@@ -21,73 +21,73 @@ type Props = {
 
 const Note_ =  inject("dataStore")(
     observer(({note},props: Props ) => { 
-      let n = new Note();
-      n = note
-    const [ newNote, setNewNote ] = useState(n);
-    const [ text, setText ] = useState(newNote.nameNote);
+    //   let n = new Note();
+    //   n = note
+    // const [ newNote, setNewNote ] = useState(n);
+    // const [ text, setText ] = useState(newNote.nameNote);
 
-    const notesStore = props.dataStore;
-    const { addToast } = useToasts();
-    const router  = useRouter()
+    // const notesStore = props.dataStore;
+    // const { addToast } = useToasts();
+    // const router  = useRouter()
 
 
 
-    async function updateNote(items){
-        const res =   await fetch(`/api/note/${newNote._id}`,{
-            method:"POST",
-          headers:{
-          "Content-Type":"application/json"
-          },
-          body:JSON.stringify({
-          nameNote:text,
-          items
-          })
-        })
+    // async function updateNote(items){
+    //     const res =   await fetch(`/api/note/${newNote._id}`,{
+    //         method:"POST",
+    //       headers:{
+    //       "Content-Type":"application/json"
+    //       },
+    //       body:JSON.stringify({
+    //       nameNote:text,
+    //       items
+    //       })
+    //     })
 
-        const res2 = await res.json() 
-        if(res2.error){
-          addToast('Error... Pleas Try Again...', {
-            appearance: 'error',
-            autoDismiss: true,
-        })
-      }else{
-        addToast('Updating Succefully...', {
-          appearance: 'success',
-          autoDismiss: true,
-      })}
-    }
+    //     const res2 = await res.json() 
+    //     if(res2.error){
+    //       addToast('Error... Pleas Try Again...', {
+    //         appearance: 'error',
+    //         autoDismiss: true,
+    //     })
+    //   }else{
+    //     addToast('Updating Succefully...', {
+    //       appearance: 'success',
+    //       autoDismiss: true,
+    //   })}
+    // }
     
     
     
 
-    function handleSubmit(e: React.FormEvent) {
-        e.preventDefault();
-        newNote.nameNote = text || "";
-        updateNote(newNote.items);
-        // notesStore.updatNote(newNote);
-        setText('');
-        router.push('/');
+    // function handleSubmit(e: React.FormEvent) {
+    //     e.preventDefault();
+    //     newNote.nameNote = text || "";
+    //     updateNote(newNote.items);
+    //     // notesStore.updatNote(newNote);
+    //     setText('');
+    //     router.push('/');
 
-    }
+    // }
 
 
-    function addItem(name: string) {
-        let note = new Note();
-        note._id = newNote._id;
-        note.nameNote = newNote.nameNote;
-        note.items = newNote.items;
-        note.addItem(name);
-        setNewNote(note);
-    }
+    // function addItem(name: string) {
+    //     let note = new Note();
+    //     note._id = newNote._id;
+    //     note.nameNote = newNote.nameNote;
+    //     note.items = newNote.items;
+    //     note.addItem(name);
+    //     setNewNote(note);
+    // }
 
-    function toggleItem(id: number) {
-        let note = new Note();
-        note._id = newNote._id;
-        note.nameNote = newNote.nameNote;
-        note.items = newNote.items;
-        note.toggleItem(id);
-        setNewNote(note);
-    }
+    // function toggleItem(id: number) {
+    //     let note = new Note();
+    //     note._id = newNote._id;
+    //     note.nameNote = newNote.nameNote;
+    //     note.items = newNote.items;
+    //     note.toggleItem(id);
+    //     setNewNote(note);
+    // }
 
     return (
         <div className={styles.container}>
@@ -105,7 +105,7 @@ const Note_ =  inject("dataStore")(
           Edit the note, create tasks and mark when done          </p>
   
           <div>
-            
+{/*             
            <div>
                 <input className="input-text"
                     type={newNote.nameNote}
@@ -126,7 +126,7 @@ const Note_ =  inject("dataStore")(
                 <div>
                     <Link href= {`/`}><div className="button-input">Main Page</div></Link>
                 </div>
-            </div>
+            </div> */}
 
         </div>
         </main>
@@ -149,27 +149,29 @@ const Note_ =  inject("dataStore")(
 
   export async function getStaticPaths() {
 
-    const res =  await fetch(`http://localhost:3000/api/notes`)
-    const notes = await res.json()
-    console.log(notes)
+    // const res =  await fetch(`http://localhost:3000/api/notes`)
+    // const notes = await res.json()
+    // console.log(notes)
 
-    const paths = notes.map((note) => `/note/${note._id}`)
+    // const paths = notes.map((note) => `/note/${note._id}`)
   
-    return { paths, fallback: false }
+    return { paths:[], fallback: false }
   }
 
 
 
   export async function getStaticProps({ params }) {
-    const res =  await fetch(`http://localhost:3000/api/note/${params._id}`)    
+    // const res =  await fetch(`http://localhost:3000/api/note/${params._id}`)    
       
-      const note = await res.json()
-    let items = [];
-    note.items.map(item=>{
-      items.push({...item})
-    })
-    note.items = items;
-    return { props: { note } }
+    //   const note = await res.json()
+    // let items = [];
+    // note.items.map(item=>{
+    //   items.push({...item})
+    // })
+    // note.items = items;
+    // return { props: { note } }
+    return { props: {  } }
+
   }
   
   export default Note_

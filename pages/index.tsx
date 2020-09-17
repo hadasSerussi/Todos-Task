@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import {CreateNote} from './new-note'
+// import {CreateNote} from './new-note'
 import Popup from 'reactjs-popup';
 import { NotesList } from '../store/notes_store'
 import { inject } from "mobx-react";
@@ -22,20 +22,18 @@ const Home = inject("dataStore")(
     const { addToast } = useToasts();
  
 
-    async function deleteNote(e,id){
-      e.preventDefault();
-      const res =  await fetch(`${baseUrl}/api/note/${id}`,{
-        method:"DELETE"
-      })
-     await res.json();
-     props.dataStore.deleteNote(id);
-     addToast('Successfully Deleted...', {
-        appearance: 'success',
-        autoDismiss: true,
-      })
-
-
-    }
+    // async function deleteNote(e,id){
+    //   e.preventDefault();
+    //   const res =  await fetch(`/api/note/${id}`,{
+    //     method:"DELETE"
+    //   })
+    //  await res.json();
+    //  props.dataStore.deleteNote(id);
+    //  addToast('Successfully Deleted...', {
+    //     appearance: 'success',
+    //     autoDismiss: true,
+    //   })
+    // }
 
     function comment(){
       addToast('You can only create ten notes...', {
@@ -57,7 +55,7 @@ const Home = inject("dataStore")(
           </h1>
           <p className={styles.description}>
           Create notes and document the tasks you need to perform          </p>
-          {dataStore.length>=10 && <label className="l">You can only create ten notes...</label>}
+          {/* {dataStore.length>=10 && <label className="l">You can only create ten notes...</label>}
 
 
           <div className={styles.grid}>
@@ -109,7 +107,7 @@ const Home = inject("dataStore")(
               ))}
 
 
-          </div>
+          </div> */}
         </main>
 
         <footer className={styles.footer}>
