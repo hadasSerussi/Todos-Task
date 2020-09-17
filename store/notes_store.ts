@@ -84,8 +84,10 @@ export function convertToItems(items){
 }
 
 export async function fetchInitialStoreState() {
+    console.log("-------1----",baseUrl)
 
-    const res =  await fetch(`/api/notes`);
+    const res =  await fetch(`${baseUrl}/api/notes`);
+    console.log("-------2----",res)
     const notes = await res.json()
     const array : Note[] =[];
     notes.map( note =>{

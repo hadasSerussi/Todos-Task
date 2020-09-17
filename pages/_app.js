@@ -1,11 +1,7 @@
 import '../styles/globals.css'
 import baseUrl from '../helpers/baseUrl'
 import initDB from '../helpers/initDB'
-// function MyApp({ Component, pageProps }) {
-//   return <Component {...pageProps} />
-// }
 
-// export default MyApp
 
 
 
@@ -13,7 +9,6 @@ import App from "next/app";
 import React, { useContext } from 'react'
 import { Provider } from "mobx-react";
 import { ToastProvider, useToasts } from 'react-toast-notifications'
-// import { fetchInitialStoreState, DataStore } from "../stores/DataStore";
 import NotesList,{ fetchInitialStoreState} from '../store/notes_store'
 
 

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { observer, inject } from "mobx-react"
 import React, { useContext } from 'react'
 import baseUrl from '../../helpers/baseUrl'
-import styles from '../../styles/Home.module.css'
+// import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useToasts } from 'react-toast-notifications'
@@ -90,18 +90,18 @@ const Note_ =  inject("dataStore")(
     }
 
     return (
-        <div className={styles.container}>
+        <div className={"container"}>
         <Head>
           <title>Todos</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
   
-        <main className={styles.main}>
-          <h3 className={styles.title}>
+        <main className={"main"}>
+          <h3 className={"title"}>
             Welcome - <label className="todos" >Todos</label>
           </h3>
   
-          <p className={styles.description}>
+          <p className={"description"}>
           Edit the note, create tasks and mark when done          </p>
   
           <div>
@@ -119,7 +119,7 @@ const Note_ =  inject("dataStore")(
             <div>
                 <ItemsListView items={newNote.items} toggleItem={toggleItem} />
             </div>
-            <div className={styles.grid}>
+            <div className={"grid"}>
                 <div>
                     <button className="button-input" type={"submit"} onClick={handleSubmit}>Update</button>
                 </div>
@@ -131,7 +131,7 @@ const Note_ =  inject("dataStore")(
         </div>
         </main>
   
-        <footer className={styles.footer}>
+        <footer className={"footer"}>
           <a
             target="_blank"
             rel="noopener noreferrer"

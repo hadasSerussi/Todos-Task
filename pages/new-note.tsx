@@ -2,7 +2,7 @@ import React, { useState ,  useContext  } from 'react';
 import Head from 'next/head'
 import Link from 'next/link'
 import { observer, inject } from "mobx-react"
-import styles from '../../styles/Home.module.css'
+// import styles from '../../styles/Home.module.css'
 import  {  NotesList,Note, Item} from '../store/notes_store'
 import baseUrl from '../helpers/baseUrl'
 import { useToasts } from 'react-toast-notifications'
@@ -31,7 +31,7 @@ export function NewItemBox({addItem}: { addItem: (_:string) => void}) {
               value={text}
               onChange={(e) => setText(e.target.value)}
           />
-            <button className={styles.delete} type={"submit"}>Add</button>
+            <button className={"delete"} type={"submit"}>Add</button>
         </form>
     )
 }
@@ -131,18 +131,18 @@ export const ItemsListView = observer(function ItemsListView({ items, toggleItem
     }
 
     return (
-        <div className={styles.container}>
+        <div className={"container"}>
         <Head>
           <title>Todos</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
   
-        <main className={styles.main}>
-          <h3 className={styles.title}>
+        <main className={"main"}>
+          <h3 className={"title"}>
           Welcome - <label className="todos" >Todos</label>
           </h3>
   
-          <p className={styles.description}>
+          <p className={"description"}>
           Create the note, create tasks and mark when done       
           </p>
   
@@ -156,7 +156,7 @@ export const ItemsListView = observer(function ItemsListView({ items, toggleItem
                 />
                 <NewItemBox addItem={addItem}/>
                 <ItemsListView items={newNote.items } toggleItem={toggleItem} />
-                <div className={styles.grid}>
+                <div className={"grid"}>
                     <Link href= {`/`}><div className="button-input">Main Page</div></Link>
                     <button className="button-input" type={"submit"} onClick={handleSubmit}>Save</button>
 
@@ -164,7 +164,7 @@ export const ItemsListView = observer(function ItemsListView({ items, toggleItem
           </div>
         </main>
   
-        <footer className={styles.footer}>
+        <footer className={"footer"}>
           <a
             target="_blank"
             rel="noopener noreferrer"
