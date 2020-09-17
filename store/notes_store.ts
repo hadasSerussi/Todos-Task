@@ -85,22 +85,20 @@ export function convertToItems(items){
 
 export async function fetchInitialStoreState() {
 
-    // const res =  await fetch(`/api/notes`);
-    // const notes = await res.json()
-    // const array : Note[] =[];
-    // notes.map( note =>{
-    //     let n = new Note();
-    //     n._id= note._id;
-    //     n.nameNote = note.nameNote;
+    const res =  await fetch(`/api/notes`);
+    const notes = await res.json()
+    const array : Note[] =[];
+    notes.map( note =>{
+        let n = new Note();
+        n._id= note._id;
+        n.nameNote = note.nameNote;
 
-    //     n.items = convertToItems(note.items);
-    //     array.push(n);
+        n.items = convertToItems(note.items);
+        array.push(n);
         
-    // })
+    })
 
-    // return array;
-
-    return { note:[]}
+    return array;
 
 
   }
